@@ -10,22 +10,48 @@ console.log(parolaUtente);
 
 //Funzione per capire se la parola inserita è palindroma
 
+// Primo metodo
+
+// function palindroma (str) {
+
+//     // Trovare lunghezza della parola
+//     var lunghezza = parolaUtente.length;
+
+//     // Metà della parola
+//     for (var i = 0; i < lunghezza / 2; i++) {
+
+//         // Controlla se la prima e l'ultima parola sono uguali
+//         if (parolaUtente[i] !== parolaUtente[lunghezza - 1 - i]) {
+//             return 'Non è palindroma';
+//         }
+//     }
+//     return 'è palindroma';
+// }
+
+// // Chiamare la funzione
+// var valore = palindroma(parolaUtente);
+// console.log(valore);
+
+// Secondo  metodo
+
 function palindroma (str) {
 
-    // Trovare lunghezza della parola
-    var lunghezza = parolaUtente.length;
+    // Converte la stringa in un array
+    var lunghezzaArray = parolaUtente.split("");
 
-    // Metà della parola
-    for (var i = 0; i < lunghezza / 2; i++) {
+    // Rovescia il valore dell'array
+    var lunghezzaArrayReverse = lunghezzaArray.reverse();
 
-        // Controlla se la prima e l'ultima parola sono uguali
-        if (parolaUtente[i] !== parolaUtente[lunghezza - 1 - i]) {
-            return 'Non è palindroma';
-        }
+    // Converte l'array in una stringa
+   var stringaReverse = lunghezzaArrayReverse.join("");
+
+    if(parolaUtente == stringaReverse) {
+        console.log('è palindroma');
     }
-    return 'è palindroma';
+    else {
+        console.log('Non è palindroma');
+    }
 }
 
-// Chiamare la funzione
-var valore = palindroma(parolaUtente);
-console.log(valore);
+palindroma(parolaUtente);
+
